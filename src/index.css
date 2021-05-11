@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.bgWrapper{
+  height: 100vh;
+  position: relative;
+}
+.bgImage{
+  height: 100%;
+  width: 100%;
+}
+.bgText{
+  position: absolute;
+  bottom: 40%;
+  left: 30%;
+  background: white;
+  padding: 2%;
+ 
+}
+
+@media only screen and (max-width: 600px) {
+  .bgWrapper{
+    height: auto;
+    position: relative;
+    margin-top: 3%;
+  }
+  .bgImage{
+    height: 100%;
+    width: 100%;
+  }
+  .bgText{
+   
+    bottom: 40%;
+    left: 2%;
+    background: white;
+    padding: 2%;
+   
+  }
+}

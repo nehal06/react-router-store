@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Route, Switch } from "react-router";
+import {Container} from "react-bootstrap";
+import Nav from "./components/Nav"
+import Home from "./pages/Home";
+import Employes from "./pages/Employes";
+import EmployeDetail from "./pages/EmployeDetail"
+import Login from "./pages/Login";
+import PrivateRoute from './components/PrivateRoute'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <Nav/>
+    <Container fluid>
+   
+        <Switch>
+          <Route path="/abc/:id" exact  component = {Home}/>
+          <PrivateRoute path="/" exact type="guest" component = {Home}/>
+          <PrivateRoute path="/employes" type="private"  component = {Employes}/>
+          <PrivateRoute path="/employe/:id" exact type="private"  component = {EmployeDetail}/>
+          <PrivateRoute path="/login" type="guest"   component = {Login}/>          
+        </Switch>
+    </Container>
+    </>
   );
 }
 
